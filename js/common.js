@@ -1,6 +1,5 @@
 import { loadHeaderFooter } from "./utils.mjs";
 
-
 // Load the header and footer
 await loadHeaderFooter()
 

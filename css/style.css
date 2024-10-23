@@ -1,24 +1,70 @@
 /* *************************************************
+ *      Variables
+ * *************************************************/
+ :root {
+    --primary-color: #11315a;
+    --header-font: "Oswald", sans-serif;
+    --body-font: "Inter", sans-serif;
+ }
+
+/* *************************************************
  *      Common Rules
  * *************************************************/
 
- * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
- }
+}
 
- h1,
- h2 {
-    margin: .5rem;
- }
+h1,
+h2 {
+    padding: .5rem;
+    color: var(--primary-color);
+    font-family: var(--header-font);
+}
 
- p {
-    margin: .5rem;
- }
+p {
+    padding: .5rem;
+    font-family: var(--body-font);
+}
 
- a {
+a {
     text-decoration: none;
-    color: black;
-    margin: .5rem;
- }
+}
+
+/* *************************************************
+ *      Header Rules
+ * *************************************************/
+#header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem;
+}
+
+#header h1 {
+    color: #fff;
+}
+
+#header a {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.active {
+    text-decoration: overline;
+}
+
+/* *************************************************
+ *      Footer Rules
+ * *************************************************/
+#footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem;
+}
