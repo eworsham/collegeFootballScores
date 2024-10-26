@@ -2,8 +2,6 @@ const baseURL = 'http://localhost:3000'
 
 export default class ExternalServices {
 
-
-
     async getData() {
 
         // Need to get the week dynamically
