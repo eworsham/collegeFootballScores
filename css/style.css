@@ -95,7 +95,7 @@ nav {
 /* *************************************************
  *      Games View Rules
  * *************************************************/
-#indexMain form {
+#gamesForm {
     margin: 1rem;
     display: grid;
     gap: .5rem;
@@ -115,3 +115,27 @@ nav {
     grid-column: 1/3;
     font-size: 1.5rem;
 }
+
+/* *************************************************
+ *      Larger Screen Rules
+ * *************************************************/
+ @media screen and (min-width: 700px) {
+    main {
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+
+
+    /* *************************************************
+    *      Games View Rules - Large Screen
+    * *************************************************/
+    #games {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #gamesForm {
+        display: grid;
+        grid-template-columns: auto 100px 200px;
+    }
+ }
