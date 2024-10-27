@@ -110,13 +110,20 @@ nav {
  *      Games View Rules
  * *************************************************/
 .gameCard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     margin: 1rem;
     padding: 1rem;
     border-radius: .5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .4);
     text-align: center;
+}
+
+.gameScore {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+span.label {
+    font-weight: 700;
 }
 
 .teamName {
@@ -151,6 +158,20 @@ nav {
 .predictionButton {
     margin: 1rem;
     grid-column: 1/3;
+}
+
+#moreGameDetails {
+    margin: auto auto;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+#closeModal {
+    padding: 1rem;
+    margin: .5rem;
+    color: red;
+    font-weight: 700;
+    font-size: 1rem;
 }
 
 /* *************************************************

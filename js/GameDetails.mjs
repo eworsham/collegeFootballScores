@@ -1,35 +1,66 @@
 function buildGameCard(game) {
     let gameCard = document.createElement('div')
     gameCard.setAttribute('class', 'gameCard')
-    gameCard.innerHTML = `
+
+
+    let gameScore = document.createElement('div')
+    gameScore.setAttribute('class', 'gameScore')
+    gameScore.innerHTML = `
         <p class="teamName">${game.away_team}</p>
         <p class="teamName">${game.home_team}</p>
         <p class="score">${game.away_points ? game.away_points : 0} : ${game.home_points ? game.home_points : 0}</p>
     `
 
+    // Make card clickable to show more details
+    gameScore.addEventListener('click', () => {
+        const moreGameDetails = document.querySelector('#moreGameDetails')
+
+        const startTime = new Date(game.start_date)
+
+        moreGameDetails.innerHTML = `
+            <button id='closeModal'>X</button>
+            <h2>${game.away_team} at ${game.home_team}</h2>
+            <p>${game.season} - Week ${game.week}</p>
+            <p><span class="label">Venue: </span>${game.venue}</p>
+            <p><span class="label">Start Time: </span>${startTime.toLocaleString()}</p>
+        `
+
+        moreGameDetails.showModal()
+
+        document
+            .querySelector('#closeModal')
+            .addEventListener('click', () => {
+                moreGameDetails.close()
+            })
+    })
+
+    gameCard.appendChild(gameScore) 
+
     // Add prediction form if game hasn't started yet
     const today = new Date()
     const gameStart = new Date(game.start_date)
     if (today < gameStart) {
-        gameCard.innerHTML += `
-            <form class="scorePrediction">
-                <h3>Prediction</h3>
-                <div>
-                    <label for="awayScore">Away Score: </label>
-                    <input type="number" name="awayScore" id="awayScore${game.id}">
-                </div>
+        let predictionForm = document.createElement('form');
+        predictionForm.setAttribute('class', 'scorePrediction');
+        predictionForm.innerHTML = `
+            <h3>Prediction</h3>
+            <div>
+                <label for="awayScore">Away Score: </label>
+                <input type="number" name="awayScore" id="awayScore${game.id}">
+            </div>
 
-                <div>
-                    <label for="homeScore">Home Score: </label>
-                    <input type="number" name="homeScore" id="homeScore${game.id}" required>                
-                </div>
+            <div>
+                <label for="homeScore">Home Score: </label>
+                <input type="number" name="homeScore" id="homeScore${game.id}" required>                
+            </div>
 
-                <div class="predictionButton">
-                    <p>You can only place one prediction</p>
-                    <button type="button" id="predictScoreButton-${game.id}">Predict Score</button>
-                </div>
-            </form>
-        `
+            <div class="predictionButton">
+                <p>You can only place one prediction</p>
+                <button type="button" id="predictScoreButton-${game.id}">Predict Score</button>
+            </div>
+        `;
+
+        gameCard.appendChild(predictionForm);
     }
 
     return gameCard
