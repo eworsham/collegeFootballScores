@@ -64,19 +64,23 @@ export default class GameDetails {
 
     addPrediction(game) {
         const scores = JSON.parse(localStorage.getItem('scores')) || []
+        const awayScore = document.querySelector(`#awayScore${game.id}`)
+        const homeScore = document.querySelector(`#homeScore${game.id}`)
+        const predictionButton = document.querySelector(`#predictScoreButton-${game.id}`)
 
         const scoreItem = {
             id: game.id,
-            away_score: document.querySelector(`#awayScore${game.id}`).value,
-            home_score: document.querySelector(`#homeScore${game.id}`).value
+            away_score: awayScore.value,
+            home_score: homeScore.value
         }
 
         scores.push(scoreItem)
         localStorage.setItem(`scores`, JSON.stringify(scores))
 
-        document
-            .querySelector(`#predictScoreButton-${game.id}`)
-            .classList.add('hidden')
+        // Hide button and make inputs readonly
+        predictionButton.classList.add('hidden')
+        awayScore.readOnly = true
+        homeScore.readOnly = true  
     }
 
     getPrediction(game) {
@@ -84,12 +88,17 @@ export default class GameDetails {
 
         scores.forEach(score => {
             if (score.id === game.id) {
-                document.querySelector(`#awayScore${game.id}`).value = score.away_score
-                document.querySelector(`#homeScore${game.id}`).value = score.home_score
+                const awayScore = document.querySelector(`#awayScore${game.id}`)
+                const homeScore = document.querySelector(`#homeScore${game.id}`)
+                const predictionButton = document.querySelector(`#predictScoreButton-${game.id}`)
 
-                document
-                    .querySelector(`#predictScoreButton-${game.id}`)
-                    .classList.add('hidden')
+                awayScore.value = score.away_score
+                homeScore.value = score.home_score
+
+                // Hide button and make inputs readOnly
+                predictionButton.classList.add('hidden')
+                awayScore.readOnly = true
+                homeScore.readOnly = true  
             }
         })
     }
