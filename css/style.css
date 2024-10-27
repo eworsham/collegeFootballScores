@@ -24,13 +24,36 @@ h2 {
     font-family: var(--header-font);
 }
 
-p {
+p,
+label,
+button {
     padding: .5rem;
     font-family: var(--body-font);
 }
 
 a {
     text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+select {
+    height: 50px;
+    font-size: 1.2rem;
+}
+
+button {
+    height: 50px;
+    font-weight: 700;
+    border-radius: .5rem;
+    border: 1px solid rgba(0, 0, 0, .7);
 }
 
 /* *************************************************
@@ -67,4 +90,28 @@ nav {
     background-color: var(--primary-color);
     color: #fff;
     padding: 1rem;
+}
+
+/* *************************************************
+ *      Games View Rules
+ * *************************************************/
+#indexMain form {
+    margin: 1rem;
+    display: grid;
+    gap: .5rem;
+}
+
+.gameCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .4);
+    text-align: center;
+}
+
+.score {
+    grid-column: 1/3;
+    font-size: 1.5rem;
 }
