@@ -1,11 +1,10 @@
-const baseURL = 'http://localhost:3000'
+const baseURL = 'https://collegefootballproxyserver.onrender.com'
 
 export default class ExternalServices {
 
-    async getData() {
+    async getScores() {
 
-        // Need to get the week dynamically
-
+        // FIXME - Need to get the week dynamically
         const week = 9
         const url = `${baseURL}/games?year=2024&week=${week}&seasonType=regular&division=fbs`
 
