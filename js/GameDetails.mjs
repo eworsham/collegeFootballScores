@@ -49,7 +49,7 @@ export default class GameDetails {
 
         // Buld game cards
         const games = document.querySelector('#games')
-        games.innerHTML = '';
+        games.innerHTML = ''
         this.gamesData.forEach(game => {
             games.appendChild(buildGameCard(game))
 

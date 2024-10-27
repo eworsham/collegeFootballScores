@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Football Rankings</title>
     <script type="module" src="/js/common.js" defer></script>
+    <script type="module" src="/js/rankings.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +16,30 @@
     <header id="header"></header>
     <main id="indexMain">
         <h2>Rankings</h2>
+        <form id="weekForm">
+            <label for="week">Select a week:</label>
+            <select name="week" id="week">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+            </select>
+            <button type="button">Go To Week</button>
+        </form>
+        <p id="loading">Loading Rankings...</p>
+        <div id="rankings"></div>
     </main>
     <footer id="footer"></footer>
 </body>

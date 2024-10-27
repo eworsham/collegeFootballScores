@@ -92,19 +92,22 @@ nav {
 }
 
 /* *************************************************
- *      Games View Rules
+ *      Week Form Rules
  * *************************************************/
-#gamesForm {
+#weekForm {
     margin: 1rem;
     display: grid;
     gap: .5rem;
 }
 
-#gamesForm label {
+#weekForm label {
     font-size: 1.2rem;
     font-weight: 700;
 }
 
+/* *************************************************
+ *      Games View Rules
+ * *************************************************/
 .gameCard {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -167,7 +170,10 @@ nav {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    #gamesForm {
+    /* *************************************************
+    *      Week Form Rules - Large Screen
+    * *************************************************/
+    #weekForm {
         display: grid;
         grid-template-columns: auto 100px 200px;
     }

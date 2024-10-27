@@ -14,4 +14,17 @@ export default class ExternalServices {
             console.error('getData Error: ', error)
         }
     }
+
+    // Get the rankings by week
+    async getRankings(week) {
+        const url = `${baseURL}/rankings?year=2024&week=${week}&seasonType=regular`
+
+        try {
+            const res = await fetch(url)
+            const data = await res.json()
+            return data
+        } catch (error) {
+            console.error('getRankings Error: ', error)
+        }
+    }
 }
