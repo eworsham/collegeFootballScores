@@ -13,12 +13,10 @@ let gameDetails = new GameDetails(dataSource)
 gameDetails.init()
 
 // Get the week for scores
-document
-    .querySelector('button')
-    .addEventListener('click', async () => {
-        const selectedWeek = selectElement.value
-        
-        dataSource = await externalServices.getScores(selectedWeek)
-        gameDetails = new GameDetails(dataSource)
-        gameDetails.init()
-    })
+selectElement.addEventListener('change', async (event) => {
+    const selectedWeek = event.target.value
+
+    dataSource = await externalServices.getScores(selectedWeek)
+    gameDetails = new GameDetails(dataSource)
+    gameDetails.init()
+})

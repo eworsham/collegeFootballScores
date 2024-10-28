@@ -41,12 +41,18 @@ a {
 }
 
 select{
+    appearance: none;
     height: 50px;
     font-size: 1.2rem;
+    border-radius: .5rem;
+    text-align: center;
 }
 
 input {
     padding: .4rem;
+    height: 50px;
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 button {
@@ -245,6 +251,6 @@ span.label {
     * *************************************************/
     #weekForm {
         display: grid;
-        grid-template-columns: auto 100px 200px;
+        grid-template-columns: auto 100px;
     }
  }

@@ -12,13 +12,11 @@ selectElement.value = currentWeek
 let rankingDetails = new RankingDetails(dataSource)
 rankingDetails.init()
 
-// Get the week for scores
-document
-    .querySelector('button')
-    .addEventListener('click', async () => {
-        const selectedWeek = selectElement.value
-        
-        dataSource = await externalServices.getRankings(selectedWeek)
-        rankingDetails = new RankingDetails(dataSource)
-        rankingDetails.init()
-    })
+// Get the week for rankings
+selectElement.addEventListener('change', async (event) => {
+    const selectedWeek = event.target.value
+    
+    dataSource = await externalServices.getRankings(selectedWeek)
+    rankingDetails = new RankingDetails(dataSource)
+    rankingDetails.init()
+})
