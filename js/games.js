@@ -1,10 +1,14 @@
 import ExternalServices from "./externalServices.mjs";
 import GameDetails from "./GameDetails.mjs";
+import { getCurrentWeek } from './utils.mjs'
 
 const externalServices = new ExternalServices()
+const selectElement = document.querySelector('#week')
 
-// Load week 1 on page load
-let dataSource = await externalServices.getScores(1)
+// Load current week on page load
+const currentWeek = getCurrentWeek()
+let dataSource = await externalServices.getScores(currentWeek)
+selectElement.value = currentWeek
 let gameDetails = new GameDetails(dataSource)
 gameDetails.init()
 
@@ -12,7 +16,6 @@ gameDetails.init()
 document
     .querySelector('button')
     .addEventListener('click', async () => {
-        const selectElement = document.querySelector('#week')
         const selectedWeek = selectElement.value
         
         dataSource = await externalServices.getScores(selectedWeek)
