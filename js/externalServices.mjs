@@ -1,3 +1,5 @@
+// external api datasource is api.collegefootballdata.com
+// server proxy is used to bypass CORS error (I didn't know another way around this CORS error)
 const baseURL = 'https://collegefootballproxyserver.onrender.com'
 
 export default class ExternalServices {
