@@ -45,13 +45,13 @@ function buildGameCard(game) {
         predictionForm.innerHTML = `
             <h3>Prediction</h3>
             <div>
-                <label for="awayScore">Away Score: </label>
-                <input type="number" name="awayScore" id="awayScore${game.id}">
+                <label for="awayScore${game.id}">Away Score: </label>
+                <input type="number" name="awayScore${game.id}" id="awayScore${game.id}" required>
             </div>
 
             <div>
-                <label for="homeScore">Home Score: </label>
-                <input type="number" name="homeScore" id="homeScore${game.id}" required>                
+                <label for="homeScore${game.id}">Home Score: </label>
+                <input type="number" name="homeScore${game.id}" id="homeScore${game.id}" required>                
             </div>
 
             <div class="predictionButton">
@@ -91,6 +91,10 @@ export default class GameDetails {
 
             this.getPrediction(game)
         });
+
+        if (this.gamesData.length === 0) {
+            games.innerHTML = '<p>No games this week</p>'
+        }
     }
 
     addPrediction(game) {
@@ -99,19 +103,21 @@ export default class GameDetails {
         const homeScore = document.querySelector(`#homeScore${game.id}`)
         const predictionButton = document.querySelector(`#predictScoreButton-${game.id}`)
 
-        const scoreItem = {
-            id: game.id,
-            away_score: awayScore.value,
-            home_score: homeScore.value
+        if (awayScore.value !== '' && homeScore.value !== '') {
+            const scoreItem = {
+                id: game.id,
+                away_score: awayScore.value,
+                home_score: homeScore.value
+            }
+    
+            scores.push(scoreItem)
+            localStorage.setItem(`scores`, JSON.stringify(scores))
+    
+            // Hide button and make inputs readonly
+            predictionButton.classList.add('hidden')
+            awayScore.readOnly = true
+            homeScore.readOnly = true  
         }
-
-        scores.push(scoreItem)
-        localStorage.setItem(`scores`, JSON.stringify(scores))
-
-        // Hide button and make inputs readonly
-        predictionButton.classList.add('hidden')
-        awayScore.readOnly = true
-        homeScore.readOnly = true  
     }
 
     getPrediction(game) {

@@ -56,6 +56,11 @@ button {
     border: 1px solid rgba(0, 0, 0, .7);
 }
 
+button:active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 /* *************************************************
  *      Header Rules
  * *************************************************/
@@ -115,7 +120,18 @@ nav {
     border-radius: .5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .4);
     text-align: center;
+    animation: faseIn 1.5s linear;
 }
+
+/* CSS animation */
+@keyframes faseIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
 
 .gameScore {
     display: grid;
@@ -166,6 +182,10 @@ span.label {
     min-height: 300px;
 }
 
+::backdrop {
+    background-color: rgba(0, 0, 0, .3);
+}
+
 #closeModal {
     padding: 1rem;
     margin: .5rem;
@@ -185,6 +205,22 @@ span.label {
     border-radius: .5rem;
     padding: .5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .4);
+    animation: slideIn 1.5s linear;
+ }
+
+ /* CSS animation */
+ @keyframes slideIn {
+    from {
+        transform: translateY(1000px);
+        box-shadow: none;
+    }
+    50% {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+    to {
+        box-shadow: 0 0 1rem rgba(0, 0, 0, .4);
+    }
  }
 
  .rankingList {
