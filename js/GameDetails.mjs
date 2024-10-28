@@ -116,7 +116,9 @@ export default class GameDetails {
             // Hide button and make inputs readonly
             predictionButton.classList.add('hidden')
             awayScore.readOnly = true
+            awayScore.classList.add('hideBorder')
             homeScore.readOnly = true  
+            homeScore.classList.add('hideBorder')
         }
     }
 
@@ -135,7 +137,9 @@ export default class GameDetails {
                 // Hide button and make inputs readOnly
                 predictionButton.classList.add('hidden')
                 awayScore.readOnly = true
+                awayScore.classList.add('hideBorder')
                 homeScore.readOnly = true  
+                homeScore.classList.add('hideBorder')
             }
         })
     }
