@@ -205,17 +205,12 @@ span.label {
     border-radius: .5rem;
     padding: .5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .4);
-    animation: slideIn 1.5s linear;
+    animation: shadowIn 1.5s linear;
  }
 
  /* CSS animation */
- @keyframes slideIn {
+ @keyframes shadowIn {
     from {
-        transform: translateY(1000px);
-        box-shadow: none;
-    }
-    50% {
-        transform: translateY(0);
         box-shadow: none;
     }
     to {
